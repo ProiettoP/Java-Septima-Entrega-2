@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinoteca - Sistema de Gestión y Ventas</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js" defer></script>
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>Vinoteca y Bodega</h1>
+        <p>Punto de venta</p>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <section class="panel-catalogo">
+
+            <div class="tarjeta-formulario">
+                <h2>Agregar Vino al Catalogo</h2>
+                <div class="grupo-inputs">
+                    <input type="text" id="input-nombre" placeholder="Nombre del vino (ej: Rutini)">
+                    <input type="text" id="input-cepa" placeholder="Cepa (ej: Malbec)">
+                    <input type="number" id="input-precio" placeholder="Precio sin IVA ($)">
+                    <input type="number" id="input-stock" placeholder="Stock inicial">
+                    <button type="button" id="btn-agregar-vino" class="btn-primario">Agregar al Catalogo</button>
+                </div>
+                <p id="mensaje-alta" class="mensaje-estado"></p>
+            </div>
+
+            <div class="barra-filtros">
+                <input type="text" id="input-busqueda" placeholder="Buscar por nombre o cepa...">
+                <button type="button" id="btn-limpiar-filtros" class="btn-secundario">Limpiar</button>
+            </div>
+
+            <div id="contenedor-items" class="grilla-vinos"></div>
+        </section>
+
+        <aside class="panel-carrito">
+            <h2>Carrito de Compras</h2>
+            <div id="contenedor-carrito" class="lista-carrito">
+                <p class="texto-vacio">El carrito esta vacio.</p>
+            </div>
+
+            <div class="resumen-totales">
+                <div class="fila-total">
+                    <span>Subtotal (sin IVA):</span>
+                    <strong id="texto-subtotal">$0.00</strong>
+                </div>
+                <div class="fila-total">
+                    <span>IVA (21%):</span>
+                    <strong id="texto-iva">$0.00</strong>
+                </div>
+                <div class="fila-total">
+                    <span>Total con IVA:</span>
+                    <strong id="texto-total-iva">$0.00</strong>
+                </div>
+
+                <div class="bloque-pago">
+                    <label for="input-cliente">Nombre del Cliente:</label>
+                    <input type="text" id="input-cliente" placeholder="Consumidor Final">
+
+                    <label for="select-pago">Metodo de Pago:</label>
+                    <select id="select-pago">
+                        <option value="efectivo">Efectivo / Transferencia (10% OFF)</option>
+                        <option value="debito">Tarjeta de Débito (Precio lista)</option>
+                        <option value="credito">Tarjeta de Credito 3 cuotas (+15%)</option>
+                    </select>
+                </div>
+
+                <div class="fila-total total-destacado">
+                    <span>TOTAL FINAL:</span>
+                    <strong id="texto-total-final">$0.00</strong>
+                </div>
+
+                <button type="button" id="btn-finalizar-venta" class="btn-confirmar">Finalizar Venta</button>
+                <button type="button" id="btn-vaciar-carrito" class="btn-peligro">Vaciar Carrito</button>
+            </div>
+
+            <div id="contenedor-comprobante" class="comprobante oculto"></div>
+        </aside>
+
+    </main>
+
+</body>
+</html>
